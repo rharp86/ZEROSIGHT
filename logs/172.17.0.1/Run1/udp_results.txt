@@ -1,0 +1,8 @@
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-01-28 07:35 CST
+Nmap scan report for 172.17.0.1
+Host is up (0.000021s latency).
+Not shown: 99 closed udp ports (port-unreach)
+PORT     STATE         SERVICE
+5353/udp open|filtered zeroconf
+
+Nmap done: 1 IP address (1 host up) scanned in 7.88 seconds

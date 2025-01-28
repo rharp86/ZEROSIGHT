@@ -1,0 +1,110 @@
+# ZeroSight Configuration File
+# Author: Robert Harp
+
+[general]
+log_level = "INFO"
+max_concurrent_tools = 5
+timeout = 300
+
+[categories]
+
+[categories.1]
+name = "OSINT"
+description = "Open Source Intelligence gathering tools"
+tools = [
+    { name = "nuclei-full", command = "nuclei -u {target} -o {base_dir}/logs/{target}/{run_dir}/nuclei_results.txt" },
+    { name = "nuclei-priv", command = "nuclei -u {target} -code {base_dir}/nuclei-templates/code/privilege-escalation/linux/binary/ -o {base_dir}/logs/{target}/{run_dir}/nuclei_priv_results.txt" },
+    { name = "whois-lookup", command = "whois {target} | tee {base_dir}/logs/{target}/{run_dir}/whois_results.txt" },
+    { name = "ssl-scan", command = "sslscan --no-colour {target} | tee {base_dir}/logs/{target}/{run_dir}/ssl_results.txt" },
+    { name = "theHarvester", command = "theHarvester -d {target} -b all -f {base_dir}/logs/{target}/{run_dir}/harvester_results.txt" },
+    { name = "gobuster-quick", command = "gobuster dir -u {target} -w {base_dir}/wordlists/common-directories.txt -o {base_dir}/logs/{target}/{run_dir}/gobuster_results.txt" },
+    { name = "spiderfoot", command = "sf.py -s {target} -o json -F tab,csv,json -o {base_dir}/logs/{target}/{run_dir}/spiderfoot_results.json" },
+    { name = "assetfinder", command = "assetfinder --subs-only {target} | tee {base_dir}/logs/{target}/{run_dir}/assetfinder_results.txt" },
+    { name = "gitrecon", command = "gitrecon -t {target} -o {base_dir}/logs/{target}/{run_dir}/gitrecon_results.txt" },
+    { name = "subfinder", command = "subfinder -d {target} -o {base_dir}/logs/{target}/{run_dir}/subfinder_results.txt" }
+]
+
+[categories.2]
+name = "Credentials"
+description = "Password and credential security assessment"
+tools = [
+    { name = "nuclei-exposures", command = "nuclei -u {target} -t {base_dir}/nuclei-templates/network/exposures/ -o {base_dir}/logs/{target}/{run_dir}/exposures_results.txt" },
+    { name = "nuclei-default-login", command = "nuclei -u {target} -t {base_dir}/nuclei-templates/network/default-login/ -o {base_dir}/logs/{target}/{run_dir}/default_login.txt" },
+    { name = "hydra-ssh", command = "hydra -L {base_dir}/wordlists/users.txt -P {base_dir}/wordlists/passwords.txt {target} ssh -o {base_dir}/logs/{target}/{run_dir}/hydra_ssh_results.txt" },
+    { name = "medusa-ftp", command = "medusa -h {target} -U {base_dir}/wordlists/users.txt -P {base_dir}/wordlists/passwords.txt -M ftp -O {base_dir}/logs/{target}/{run_dir}/medusa_results.txt" },
+    { name = "changeme", command = "changeme {target} --output {base_dir}/logs/{target}/{run_dir}/changeme_results.html" }
+]
+
+[categories.3]
+name = "Network"
+description = "Network scanning and enumeration"
+tools = [
+    { name = "nuclei-netenum", command = "nuclei -t {base_dir}/nuclei-templates/network/enumeration -u {target} -o {base_dir}/logs/{target}/{run_dir}/network_enumeration.txt" },
+    { name = "nmap-full", command = "nmap -sC -sV -Pn -p- -T4 -O {target} -oN {base_dir}/logs/{target}/{run_dir}/nmap_full.txt" },
+    { name = "masscan-quick", command = "masscan {target} -p1-65535 --rate 1000 -oL {base_dir}/logs/{target}/{run_dir}/masscan_results.txt" },
+    { name = "tcp-scan", command = "nmap -sT -p- {target} -oN {base_dir}/logs/{target}/{run_dir}/tcp_results.txt" },
+    { name = "udp-scan", command = "nmap -sU --top-ports 100 {target} -oN {base_dir}/logs/{target}/{run_dir}/udp_results.txt" },
+    { name = "unicornscan", command = "unicornscan -mT -Iv {target}:a -l {base_dir}/logs/{target}/{run_dir}/unicorn_results.txt" },
+    { name = "zmap", command = "zmap {target} -p 80 -o {base_dir}/logs/{target}/{run_dir}/zmap_results.txt" },
+    { name = "amap", command = "amap -bqv {target} 1-65535 -o {base_dir}/logs/{target}/{run_dir}/amap_results.txt" },
+    { name = "netcat-scan", command = "nc -zv {target} 1-65535 2>&1 | tee {base_dir}/logs/{target}/{run_dir}/netcat_results.txt" }
+]
+
+[categories.4]
+name = "Web"
+description = "Web application security assessment"
+tools = [
+    { name = "nikto", command = "nikto -h {target} -output {base_dir}/logs/{target}/{run_dir}/nikto_results.txt" },
+    { name = "wpscan", command = "wpscan --url {target} --output {base_dir}/logs/{target}/{run_dir}/wpscan_results.txt" },
+    { name = "zap-baseline", command = "zap-baseline.py -t {target} -r {base_dir}/logs/{target}/{run_dir}/zap_baseline_report.html" },
+]
+
+[categories.5]
+name = "Active Directory"
+description = "Active Directory security assessment"
+tools = [
+    { name = "kerbrute-users", command = "kerbrute userenum --dc {target} -o {base_dir}/logs/{target}/{run_dir}/kerbrute_results.txt" },
+    { name = "windapsearch", command = "windapsearch -d {target} --dc {target} -o {base_dir}/logs/{target}/{run_dir}/windapsearch_results.txt" },
+    { name = "enum4linux", command = "enum4linux -a {target} | tee {base_dir}/logs/{target}/{run_dir}/enum4linux_results.txt" },
+    { name = "crackmapexec", command = "crackmapexec smb {target} --users | tee {base_dir}/logs/{target}/{run_dir}/crackmapexec_results.txt" },
+    { name = "netexec", command = "nxc smb {target} --log {base_dir}/logs/{target}/{run_dir}/netexec.txt" }
+]
+
+[categories.6]
+name = "Cloud"
+description = "Cloud infrastructure security assessment"
+tools = [
+    { name = "nuclei-cloud", command = "nuclei -esc {base_dir}/nuclei-templates/cloud/ -u {target} -o {base_dir}/logs/{target}/{run_dir}/nuclei_cloud_results.txt" },
+    { name = "nuclei-kubernetes", command = "nuclei -esc {base_dir}/nuclei-templates/cloud/kubernetes -u {target} -o {base_dir}/logs/{target}/{run_dir}/nuclei_kubernetes_results.txt" },
+    { name = "cloud_enum", command = "cloud_enum -k {target} -l {base_dir}/logs/{target}/{run_dir}/cloud_enum_results.txt" },
+    { name = "s3scanner", command = "s3scanner scan {target} -o {base_dir}/logs/{target}/{run_dir}/s3_scanner_results.txt" },
+    { name = "cloudsploit", command = "cloudsploit scan -c {target} -o {base_dir}/logs/{target}/{run_dir}/cloudsploit_results.json" },
+    { name = "prowler", command = "prowler -M json -f {target} -o {base_dir}/logs/{target}/{run_dir}/prowler_results" },
+    { name = "ScoutSuite", command = "scout aws -r {target} -o {base_dir}/logs/{target}/{run_dir}/scoutsuite_results" },
+    { name = "CloudMapper", command = "python3 cloudmapper.py collect --account {target} -o {base_dir}/logs/{target}/{run_dir}/cloudmapper_results" },
+    { name = "gcloud", command = "gcloud projects list --filter='{target}' | tee {base_dir}/logs/{target}/{run_dir}/gcloud_enum_results.txt" },
+    { name = "gcp_buckets_enum", command = "python3 gcp_bucket_enum.py {target} -o {base_dir}/logs/{target}/{run_dir}/gcp_buckets_enum_results.txt" },
+    { name = "Azucar", command = "python3 Azucar.py -d {target} -o {base_dir}/logs/{target}/{run_dir}/azucar_results" },
+    { name = "az-cli", command = "az account list -o table | tee {base_dir}/logs/{target}/{run_dir}/azure_enum_results.txt" },
+    { name = "kube-hunter", command = "kube-hunter --remote {target} --json {base_dir}/logs/{target}/{run_dir}/kube_hunter_results.json" },
+    { name = "kubectl", command = "kubectl get all --all-namespaces -o json | tee {base_dir}/logs/{target}/{run_dir}/kubectl_results.json" },
+    { name = "kube-bench", command = "kube-bench --json | tee {base_dir}/logs/{target}/{run_dir}/kube_bench_results.json" }
+]
+
+[categories.7]
+name = "Databases"
+description = "Database security scanning and enumeration"
+tools = [
+    { name = "mongodb-scan", command = "nmap -p 27017 -sV --script mongodb-info {target} -oN {base_dir}/logs/{target}/{run_dir}/mongodb_results.txt" },
+    { name = "mysql-scan", command = "nmap -p 3306 -sV --script mysql-info {target} -oN {base_dir}/logs/{target}/{run_dir}/mysql_results.txt" },
+    { name = "postgres-scan", command = "nmap -p 5432 -sV --script pgsql-brute {target} -oN {base_dir}/logs/{target}/{run_dir}/postgres_results.txt" },
+    { name = "redis-scan", command = "redis-cli -h {target} info | tee {base_dir}/logs/{target}/{run_dir}/redis_results.txt" },
+    { name = "mssql-scan", command = "nmap -p 1433 --script ms-sql-info {target} -oN {base_dir}/logs/{target}/{run_dir}/mssql_results.txt" },
+    { name = "oracle-scan", command = "nmap -p 1521 --script oracle-enum-users {target} -oN {base_dir}/logs/{target}/{run_dir}/oracle_results.txt" }
+]
+
+[paths]
+base_dir = "${ZEROSIGHT_PATH}"
+wordlists = "${base_dir}/wordlists"
+tools = "${base_dir}/tools"
+nuclei_templates = "${base_dir}/nuclei-templates"

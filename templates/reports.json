@@ -1,0 +1,21 @@
+{
+    "metadata": {
+      "start_time": "{{start_time}}",
+      "end_time": "{{end_time}}",
+      "user": "{{user}}",
+      "version": "{{version}}"
+    },
+    "results": {
+      "{{target}}": {
+        "category": "{{category}}",
+        "results": [
+          {
+            "tool": "{{tool}}",
+            "status": "{{status}}",
+            "output": "{{output}}"
+          }
+        ],
+        "timestamp": "{{timestamp}}"
+      }
+    }
+  }

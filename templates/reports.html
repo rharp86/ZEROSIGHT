@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ZeroSight Scan Report</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .header {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .results {
+            margin-top: 20px;
+        }
+        .tool-result {
+            border: 1px solid #ddd;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .tool-result h3 {
+            margin-top: 0;
+        }
+        .metadata {
+            font-size: 0.9em;
+            color: #555;
+        }
+        .metadata p {
+            margin: 0;
+        }
+        .timestamp {
+            font-size: 0.8em;
+            color: #888;
+        }
+        .output {
+            white-space: pre-wrap;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #eee;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>ZeroSight Scan Report</h1>
+        <div class="metadata">
+            <p><strong>Generated:</strong> {{ timestamp }}</p>
+            <p><strong>Target:</strong> {{ target }}</p>
+        </div>
+    </div>
+    <div class="results">
+        {% for target, details in results.items() %}
+            <div class="tool-result">
+                <h3>{{ target }} - {{ details.category }}</h3>
+                <div class="timestamp"><strong>Scan Time:</strong> {{ details.timestamp }}</div>
+                {% for result in details.results %}
+                    <div class="tool-result">
+                        <h4>{{ result.tool }}</h4>
+                        <div class="output">{{ result.output }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

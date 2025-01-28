@@ -1,0 +1,696 @@
+<html><body>
+<h1>Zerosight Security Assessment Report</h1>
+<p>Target: 172.17.0.1</p>
+<p>Run ID: Run1</p>
+<p>Generated: 2025-01-28 07:47:06</p>
+<h2>Assessment Summary</h2>
+<h3>whois_results.txt</h3>
+<pre>
+
+#
+# ARIN WHOIS data and services are subject to the Terms of Use
+# available at: https://www.arin.net/resources/registry/whois/tou/
+#
+# If you see inaccuracies in the results, please report at
+# https://www.arin.net/resources/registry/whois/inaccuracy_reporting/
+#
+# Copyright 1997-2025, American Registry for Internet Numbers, Ltd.
+#
+
+
+NetRange:       172.16.0.0 - 172.31.255.255
+CIDR:           172.16.0.0/12
+NetName:        PRIVATE-ADDRESS-BBLK-RFC1918-IANA-RESERVED
+NetHandle:      NET-172-16-0-0-1
+Parent:         NET172 (NET-172-0-0-0-0)
+NetType:        IANA Special Use
+OriginAS:       
+Organization:   Internet Assigned Numbers Authority (IANA)
+RegDate:        1994-03-15
+Updated:        2024-05-24
+Comment:        These addresses are in use by many millions of independently operated networks, which might be as small as a single computer connected to a home gateway, and are automatically configured in hundreds of millions of devices.  They are only intended for use within a private context  and traffic that needs to cross the Internet will need to use a different, unique address.
+Comment:        
+Comment:        These addresses can be used by anyone without any need to coordinate with IANA or an Internet registry.  The traffic from these addresses does not come from ICANN or IANA.  We are not the source of activity you may see on logs or in e-mail records.  Please refer to http://www.iana.org/abuse/answers
+Comment:        
+Comment:        These addresses were assigned by the IETF, the organization that develops Internet protocols, in the Best Current Practice document, RFC 1918 which can be found at:
+Comment:        http://datatracker.ietf.org/doc/rfc1918
+Ref:            https://rdap.arin.net/registry/ip/172.16.0.0
+
+
+
+OrgName:        Internet Assigned Numbers Authority
+OrgId:          IANA
+Address:        12025 Waterfront Drive
+Address:        Suite 300
+City:           Los Angeles
+StateProv:      CA
+PostalCode:     90292
+Country:        US
+RegDate:        
+Updated:        2024-05-24
+Ref:            https://rdap.arin.net/registry/entity/IANA
+
+
+OrgTechHandle: IANA-IP-ARIN
+OrgTechName:   ICANN
+OrgTechPhone:  +1-310-301-5820 
+OrgTechEmail:  abuse@iana.org
+OrgTechRef:    https://rdap.arin.net/registry/entity/IANA-IP-ARIN
+
+OrgAbuseHandle: IANA-IP-ARIN
+OrgAbuseName:   ICANN
+OrgAbusePhone:  +1-310-301-5820 
+OrgAbuseEmail:  abuse@iana.org
+OrgAbuseRef:    https://rdap.arin.net/registry/entity/IANA-IP-ARIN
+
+
+#
+# ARIN WHOIS data and services are subject to the Terms of Use
+# available at: https://www.arin.net/resources/registry/whois/tou/
+#
+# If you see inaccuracies in the results, please report at
+# https://www.arin.net/resources/registry/whois/inaccuracy_reporting/
+#
+# Copyright 1997-2025, American Registry for Internet Numbers, Ltd.
+#
+
+</pre>
+<h3>enum4linux_results.txt</h3>
+<pre>
+Starting enum4linux v0.9.1 ( http://labs.portcullis.co.uk/application/enum4linux/ ) on Tue Jan 28 07:40:55 2025
+
+[34m =========================================( [0m[32mTarget Information[0m[34m )=========================================
+
+[0mTarget ........... 172.17.0.1
+RID Range ........ 500-550,1000-1050
+Username ......... ''
+Password ......... ''
+Known Usernames .. administrator, guest, krbtgt, domain admins, root, bin, none
+
+
+[34m =============================( [0m[32mEnumerating Workgroup/Domain on 172.17.0.1[0m[34m )=============================
+
+[0m[33m
+[E] [0m[31mCan't find workgroup/domain
+
+[0m
+
+[34m =================================( [0m[32mNbtstat Information for 172.17.0.1[0m[34m )=================================
+
+[0mLooking up status of 172.17.0.1
+No reply from 172.17.0.1
+
+[34m ====================================( [0m[32mSession Check on 172.17.0.1[0m[34m )====================================
+
+[0m[33m
+[E] [0m[31mServer doesn't allow session using username '', password ''.  Aborting remainder of tests.
+
+[0m</pre>
+<h3>exposures_results.txt</h3>
+<pre>
+
+                     __     _
+   ____  __  _______/ /__  (_)
+  / __ \/ / / / ___/ / _ \/ /
+ / / / / /_/ / /__/ /  __/ /
+/_/ /_/\__,_/\___/_/\___/_/   v3.3.8
+
+		projectdiscovery.io
+
+[[34mINF[0m] Current nuclei version: v3.3.8 ([92mlatest[0m)
+[[34mINF[0m] Current nuclei-templates version: v10.1.2 ([92mlatest[0m)
+[[93mWRN[0m] Scan results upload to cloud is disabled.
+[[34mINF[0m] New templates added in latest release: 52
+[[34mINF[0m] Templates loaded for current scan: 5
+[[34mINF[0m] Executing 5 signed templates from projectdiscovery/nuclei-templates
+[[34mINF[0m] Targets loaded for current scan: 1
+[[34mINF[0m] No results found. Better luck next time!
+</pre>
+<h3>ssl_results.txt</h3>
+<pre>
+Version: 2.1.5
+OpenSSL 3.3.2 3 Sep 2024
+
+ERROR: Could not open a connection to host 172.17.0.1 (172.17.0.1) on port 443 (connect: Connection refused).
+</pre>
+<h3>udp_results.txt</h3>
+<pre>
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-01-28 07:35 CST
+Nmap scan report for 172.17.0.1
+Host is up (0.000021s latency).
+Not shown: 99 closed udp ports (port-unreach)
+PORT     STATE         SERVICE
+5353/udp open|filtered zeroconf
+
+Nmap done: 1 IP address (1 host up) scanned in 7.88 seconds
+</pre>
+<h3>assetfinder_results.txt</h3>
+<pre>
+172.17.0.1
+</pre>
+<h3>s3_scanner_results.txt</h3>
+<pre>
+time="2025-01-28T07:46:32-06:00" level=error msg="exactly one of: -bucket, -bucket-file, -mq required"
+</pre>
+<h3>medusa_results.txt</h3>
+<pre>
+Medusa v2.3_rc1 [http://www.foofus.net] (C) JoMo-Kun / Foofus Networks <jmk@foofus.net>
+
+NOTICE: ftp.mod: failed to connect, port 21 was not open on 172.17.0.1
+</pre>
+<h3>nmap_full.txt</h3>
+<pre>
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-01-28 07:35 CST
+Nmap scan report for 172.17.0.1
+Host is up (0.000092s latency).
+Not shown: 65532 closed tcp ports (reset)
+PORT     STATE    SERVICE    VERSION
+1716/tcp open     tcpwrapped
+7474/tcp filtered neo4j
+7687/tcp filtered bolt
+Device type: general purpose
+Running: Linux 5.X|6.X
+OS CPE: cpe:/o:linux:linux_kernel:5 cpe:/o:linux:linux_kernel:6
+OS details: Linux 5.0 - 6.2
+Network Distance: 0 hops
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 17.01 seconds
+</pre>
+<h3>netcat_results.txt</h3>
+<pre>
+48ctskali [172.17.0.1] 7687 (?) open
+48ctskali [172.17.0.1] 7474 (?) open
+48ctskali [172.17.0.1] 1716 (?) open
+</pre>
+<h3>tcp_results.txt</h3>
+<pre>
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-01-28 07:35 CST
+Nmap scan report for 172.17.0.1
+Host is up (0.000051s latency).
+Not shown: 65532 closed tcp ports (conn-refused)
+PORT     STATE SERVICE
+1716/tcp open  xmsg
+7474/tcp open  neo4j
+7687/tcp open  bolt
+
+Nmap done: 1 IP address (1 host up) scanned in 7.26 seconds
+</pre>
+<h3>mssql_results.txt</h3>
+<pre>
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-01-28 07:46 CST
+Nmap scan report for 172.17.0.1
+Host is up (0.00011s latency).
+
+PORT     STATE  SERVICE
+1433/tcp closed ms-sql-s
+
+Nmap done: 1 IP address (1 host up) scanned in 6.68 seconds
+</pre>
+<h3>subfinder_results.txt</h3>
+<pre>
+
+               __    _____           __         
+   _______  __/ /_  / __(_)___  ____/ /__  _____
+  / ___/ / / / __ \/ /_/ / __ \/ __  / _ \/ ___/
+ (__  ) /_/ / /_/ / __/ / / / / /_/ /  __/ /    
+/____/\__,_/_.___/_/ /_/_/ /_/\__,_/\___/_/
+
+		projectdiscovery.io
+
+[[34mINF[0m] Current subfinder version v2.6.0 ([91moutdated[0m)
+[[34mINF[0m] Loading provider config from /home/ctskali/.config/subfinder/provider-config.yaml
+[[34mINF[0m] Enumerating subdomains for 172.17.0.1
+[[34mINF[0m] Found 0 subdomains for 172.17.0.1 in 5 seconds 253 milliseconds
+</pre>
+<h3>hydra_ssh_results.txt</h3>
+<pre>
+Hydra v9.5 (c) 2023 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2025-01-28 07:35:05
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 1280220 login tries (l:5/p:256044), ~80014 tries per task
+[DATA] attacking ssh://172.17.0.1:22/
+[WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
+[ERROR] could not connect to ssh://172.17.0.1:22 - Connection refused
+</pre>
+<h3>windapsearch_results.txt</h3>
+<pre>
+/bin/sh: 1: windapsearch: not found
+</pre>
+<h3>cloud_enum_results.txt</h3>
+<pre>
+
+
+#### CLOUD_ENUM 28/01/2025 07:41:32 ####
+</pre>
+<h3>unicorn_results.txt</h3>
+<pre>
+</pre>
+<h3>nuclei_results.txt</h3>
+<pre>
+
+                     __     _
+   ____  __  _______/ /__  (_)
+  / __ \/ / / / ___/ / _ \/ /
+ / / / / /_/ / /__/ /  __/ /
+/_/ /_/\__,_/\___/_/\___/_/   v3.3.8
+
+		projectdiscovery.io
+
+[[31mWRN[0m] Found 2 templates with runtime error (use -validate flag for further examination)
+[[34mINF[0m] Current nuclei version: v3.3.8 ([92mlatest[0m)
+[[34mINF[0m] Current nuclei-templates version: v10.1.2 ([92mlatest[0m)
+[[93mWRN[0m] Scan results upload to cloud is disabled.
+[[34mINF[0m] New templates added in latest release: 52
+[[34mINF[0m] Templates loaded for current scan: 7656
+[[34mINF[0m] Executing 7276 signed templates from projectdiscovery/nuclei-templates
+[[93mWRN[0m] Loading 380 unsigned templates for scan. Use with caution.
+[[34mINF[0m] Targets loaded for current scan: 1
+[[34mINF[0m] Running httpx on input host
+[[34mINF[0m] Found 0 URL from httpx
+[[34mINF[0m] Templates clustered: 1698 (Reduced 1598 Requests)
+[[34mINF[0m] Skipped 172.17.0.1:80 from target list as found unresponsive 30 times
+[[34mINF[0m] Using Interactsh Server: oast.fun
+[[34mINF[0m] No results found. Better luck next time!
+</pre>
+<h3>nuclei_priv_results.txt</h3>
+<pre>
+
+                     __     _
+   ____  __  _______/ /__  (_)
+  / __ \/ / / / ___/ / _ \/ /
+ / / / / /_/ / /__/ /  __/ /
+/_/ /_/\__,_/\___/_/\___/_/   v3.3.8
+
+		projectdiscovery.io
+
+[[31mWRN[0m] Found 75 templates with runtime error (use -validate flag for further examination)
+[[93mWRN[0m] Skipping 4 unsigned template[s]
+[[34mINF[0m] Current nuclei version: v3.3.8 ([92mlatest[0m)
+[[34mINF[0m] Current nuclei-templates version: v10.1.2 ([92mlatest[0m)
+[[93mWRN[0m] Scan results upload to cloud is disabled.
+[[34mINF[0m] New templates added in latest release: 52
+[[34mINF[0m] Templates loaded for current scan: 8981
+[[34mINF[0m] Executing 8601 signed templates from projectdiscovery/nuclei-templates
+[[93mWRN[0m] Loading 380 unsigned templates for scan. Use with caution.
+[[34mINF[0m] Targets loaded for current scan: 1
+[[34mINF[0m] Running httpx on input host
+[[34mINF[0m] Found 0 URL from httpx
+[[34mINF[0m] Templates clustered: 1698 (Reduced 1598 Requests)
+[[34mINF[0m] Skipped 172.17.0.1:80 from target list as found unresponsive 30 times
+[[34mINF[0m] Using Interactsh Server: oast.site
+[[34mINF[0m] No results found. Better luck next time!
+</pre>
+<h3>network_enumeration.txt</h3>
+<pre>
+
+                     __     _
+   ____  __  _______/ /__  (_)
+  / __ \/ / / / ___/ / _ \/ /
+ / / / / /_/ / /__/ /  __/ /
+/_/ /_/\__,_/\___/_/\___/_/   v3.3.8
+
+		projectdiscovery.io
+
+[[34mINF[0m] Current nuclei version: v3.3.8 ([92mlatest[0m)
+[[34mINF[0m] Current nuclei-templates version: v10.1.2 ([92mlatest[0m)
+[[93mWRN[0m] Scan results upload to cloud is disabled.
+[[34mINF[0m] New templates added in latest release: 52
+[[34mINF[0m] Templates loaded for current scan: 7
+[[34mINF[0m] Executing 7 signed templates from projectdiscovery/nuclei-templates
+[[34mINF[0m] Targets loaded for current scan: 1
+[[34mINF[0m] No results found. Better luck next time!
+</pre>
+<h3>zmap_results.txt</h3>
+<pre>
+/bin/sh: 1: zmap: not found
+</pre>
+<h3>gitrecon_results.txt</h3>
+<pre>
+/bin/sh: 1: gitrecon: not found
+</pre>
+<h3>redis_results.txt</h3>
+<pre>
+Could not connect to Redis at 172.17.0.1:6379: Connection refused
+</pre>
+<h3>nuclei_cloud_results.txt</h3>
+<pre>
+
+                     __     _
+   ____  __  _______/ /__  (_)
+  / __ \/ / / / ___/ / _ \/ /
+ / / / / /_/ / /__/ /  __/ /
+/_/ /_/\__,_/\___/_/\___/_/   v3.3.8
+
+		projectdiscovery.io
+
+[[31mWRN[0m] Found 2 templates with runtime error (use -validate flag for further examination)
+[[34mINF[0m] Current nuclei version: v3.3.8 ([92mlatest[0m)
+[[34mINF[0m] Current nuclei-templates version: v10.1.2 ([92mlatest[0m)
+[[93mWRN[0m] Scan results upload to cloud is disabled.
+[[34mINF[0m] New templates added in latest release: 52
+[[34mINF[0m] Templates loaded for current scan: 8566
+[[34mINF[0m] Executing 8186 signed templates from projectdiscovery/nuclei-templates
+[[93mWRN[0m] Loading 380 unsigned templates for scan. Use with caution.
+[[34mINF[0m] No results found. Better luck next time!
+</pre>
+<h3>kerbrute_results.txt</h3>
+<pre>
+/bin/sh: 1: kerbrute: not found
+</pre>
+<h3>oracle_results.txt</h3>
+<pre>
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-01-28 07:46 CST
+Nmap scan report for 172.17.0.1
+Host is up (0.000094s latency).
+
+PORT     STATE  SERVICE
+1521/tcp closed oracle
+
+Nmap done: 1 IP address (1 host up) scanned in 6.69 seconds
+</pre>
+<h3>gcp_buckets_enum_results.txt</h3>
+<pre>
+python3: can't open file '/home/ctskali/Desktop/Tools/ZEROSIGHT/gcp_bucket_enum.py': [Errno 2] No such file or directory
+</pre>
+<h3>nuclei_kubernetes_results.txt</h3>
+<pre>
+
+                     __     _
+   ____  __  _______/ /__  (_)
+  / __ \/ / / / ___/ / _ \/ /
+ / / / / /_/ / /__/ /  __/ /
+/_/ /_/\__,_/\___/_/\___/_/   v3.3.8
+
+		projectdiscovery.io
+
+[[31mWRN[0m] Found 2 templates with runtime error (use -validate flag for further examination)
+[[34mINF[0m] Current nuclei version: v3.3.8 ([92mlatest[0m)
+[[34mINF[0m] Current nuclei-templates version: v10.1.2 ([92mlatest[0m)
+[[93mWRN[0m] Scan results upload to cloud is disabled.
+[[34mINF[0m] New templates added in latest release: 52
+[[34mINF[0m] Templates loaded for current scan: 8566
+[[34mINF[0m] Executing 8186 signed templates from projectdiscovery/nuclei-templates
+[[93mWRN[0m] Loading 380 unsigned templates for scan. Use with caution.
+[[34mINF[0m] No results found. Better luck next time!
+</pre>
+<h3>crackmapexec_results.txt</h3>
+<pre>
+</pre>
+<h3>mysql_results.txt</h3>
+<pre>
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-01-28 07:46 CST
+Nmap scan report for 172.17.0.1
+Host is up (0.00012s latency).
+
+PORT     STATE  SERVICE VERSION
+3306/tcp closed mysql
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 6.75 seconds
+</pre>
+<h3>harvester_results.txt</h3>
+<pre>
+Read proxies.yaml from /etc/theHarvester/proxies.yaml
+*******************************************************************
+*  _   _                                            _             *
+* | |_| |__   ___    /\  /\__ _ _ ____   _____  ___| |_ ___ _ __  *
+* | __|  _ \ / _ \  / /_/ / _` | '__\ \ / / _ \/ __| __/ _ \ '__| *
+* | |_| | | |  __/ / __  / (_| | |   \ V /  __/\__ \ ||  __/ |    *
+*  \__|_| |_|\___| \/ /_/ \__,_|_|    \_/ \___||___/\__\___|_|    *
+*                                                                 *
+* theHarvester 4.6.0                                              *
+* Coded by Christian Martorella                                   *
+* Edge-Security Research                                          *
+* cmartorella@edge-security.com                                   *
+*                                                                 *
+*******************************************************************
+
+[*] Target: 172.17.0.1 
+
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for bevigil. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for binaryedge. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for bufferoverun. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for Censys ID and/or Secret. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for criminalip. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for fullhunt. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for Github. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for Hunter. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for hunterhow. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for Intelx. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for netlas. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for onyphe. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for PentestTools. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for ProjectDiscovery. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for RocketReach. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for Securitytrail. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for Tomba Key and/or Secret. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for virustotal. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for zoomeye. [0m
+[94m[*] Searching Anubis. 
+	Searching 0 results.
+[94m[*] Searching Bing. 
+[94m[*] Searching Baidu. 
+An exception has occurred: 400, message:
+  Can not decode content-encoding: br
+	Searching results.
+[94m[*] Searching Certspotter. 
+An exception occurred: list index out of range
+[94m[*] Searching Dnsdumpster. 
+[94m[*] Searching CRTsh. 
+[94m[*] Searching Duckduckgo. 
+[94m[*] Searching Hackertarget. 
+[94m[*] Searching Rapiddns. 
+Sitedossier module has triggered a captcha on first iteration, no results can be found.
+Change IPs, manually solve the captcha, or wait before rerunning Sitedossier module
+[94m[*] Searching Sitedossier. 
+[94m[*] Searching Subdomaincenter. 
+An exception has occurred: 400, message:
+  Can not decode content-encoding: br
+An exception has occurred: 500, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://api.threatminer.org/v2/domain.php?q=172.17.0.1&rt=5'
+[94m[*] Searching Subdomainfinderc99. 
+[94m[*] Searching Urlscan. 
+[94m[*] Searching Yahoo. 
+An exception has occurred: 400, message:
+  Can not decode content-encoding: br
+[94m[*] Searching Brave. 
+
+[*] ASNS found: 6
+--------------------
+AS13335
+AS16276
+AS16509
+AS200350
+AS24940
+AS396982
+
+[*] Interesting Urls found: 24
+--------------------
+http://172.17.0.1/
+http://172.17.0.1/16
+http://172.17.0.1/filestreamingservice/files/5f195612-384a-48ea-8408-b4ede9dc56bb
+http://172.17.0.1:10180/
+http://172.17.0.1:3000/
+http://172.17.0.1:3000/japan
+http://172.17.0.1:3030/
+http://172.17.0.1:4000/
+http://172.17.0.1:5500/
+http://172.17.0.1:8080/
+http://172.17.0.1:8081/
+http://172.17.0.1:8082/
+http://172.17.0.1:8086/
+http://172.17.0.1:8086/poc.jsp/
+http://172.17.0.1:8086/tplus/ajaxpro/Ufida.T.CodeBehind._PriorityLevel,App_Code.ashx?method=GetStoreWarehouseByStore
+http://172.17.0.1:8086/uploads/user
+http://172.17.0.1:8086/wls-wsat/CoordinatorPortType
+http://172.17.0.1:81/
+http://172.17.0.1:83/
+http://172.17.0.1:8545/
+http://172.17.0.1:8546/
+http://172.17.0.1:9000/
+https://172.17.0.1/
+https://172.17.0.1/login
+
+[*] LinkedIn Links found: 0
+---------------------
+
+[*] IPs found: 9
+-------------------
+172.66.40.246
+172.66.43.10
+2606:4700:3108::ac42:28f6
+34.155.164.8
+49.12.213.169
+76.76.21.142
+79.137.72.206
+89.169.159.74
+92.222.206.252
+
+[*] Emails found: 3
+----------------------
+'example-user@172.17.0.1
+postgres@172.17.0.1
+root@172.17.0.1
+
+[*] Hosts found: 2
+---------------------
+IP.172.17.0.1
+devices.172.17.0.1
+
+[*] Reporting started.
+[*] XML File saved.
+[*] JSON File saved.
+
+
+
+Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x7f7ed78482c0>
+</pre>
+<h3>nikto_results.txt</h3>
+<pre>
+- Nikto v2.5.0
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
++ 0 host(s) tested
+</pre>
+<h3>postgres_results.txt</h3>
+<pre>
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-01-28 07:46 CST
+Nmap scan report for 172.17.0.1
+Host is up (0.000032s latency).
+
+PORT     STATE  SERVICE    VERSION
+5432/tcp closed postgresql
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 6.80 seconds
+</pre>
+<h3>mongodb_results.txt</h3>
+<pre>
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-01-28 07:46 CST
+Nmap scan report for 172.17.0.1
+Host is up (0.00011s latency).
+
+PORT      STATE  SERVICE VERSION
+27017/tcp closed mongod
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 6.77 seconds
+</pre>
+<h3>azure_enum_results.txt</h3>
+<pre>
+/bin/sh: 1: az: not found
+</pre>
+<h3>gobuster_results.txt</h3>
+<pre>
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://172.17.0.1
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /home/ctskali/Desktop/Tools/ZEROSIGHT/wordlists/common-directories.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.6
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+
+Error: error on running gobuster: unable to connect to http://172.17.0.1/: Get "http://172.17.0.1/": dial tcp 172.17.0.1:80: connect: connection refused
+</pre>
+<h3>masscan_results.txt</h3>
+<pre>
+[-] FAIL: permission denied
+    [hint] need to sudo or run as root or something
+[-] if:eth0:init: failed
+</pre>
+<h3>netexec.txt</h3>
+<pre>
+</pre>
+<h3>gcloud_enum_results.txt</h3>
+<pre>
+/bin/sh: 1: gcloud: not found
+</pre>
+<h3>wpscan_results.txt</h3>
+<pre>
+</pre>
+<h3>default_login.txt</h3>
+<pre>
+
+                     __     _
+   ____  __  _______/ /__  (_)
+  / __ \/ / / / ___/ / _ \/ /
+ / / / / /_/ / /__/ /  __/ /
+/_/ /_/\__,_/\___/_/\___/_/   v3.3.8
+
+		projectdiscovery.io
+
+[[34mINF[0m] Current nuclei version: v3.3.8 ([92mlatest[0m)
+[[34mINF[0m] Current nuclei-templates version: v10.1.2 ([92mlatest[0m)
+[[93mWRN[0m] Scan results upload to cloud is disabled.
+[[34mINF[0m] New templates added in latest release: 52
+[[34mINF[0m] Templates loaded for current scan: 3
+[[34mINF[0m] Executing 3 signed templates from projectdiscovery/nuclei-templates
+[[34mINF[0m] Targets loaded for current scan: 1
+[[34mINF[0m] No results found. Better luck next time!
+</pre>
+<h3>amap_results.txt</h3>
+<pre>
+Using trigger file /etc/amap/appdefs.trig ... loaded 30 triggers
+Using response file /etc/amap/appdefs.resp ... loaded 346 responses
+Using trigger file /etc/amap/appdefs.rpc ... loaded 450 triggers
+
+amap v5.4 (www.thc.org/thc-amap) started at 2025-01-28 07:40:39 - APPLICATION MAPPING mode
+
+Total amount of tasks to perform in plain connect mode: 1507305
+Protocol on 172.17.0.1:7474/tcp (by trigger http) matches http - banner: HTTP/1.1 200 OK\r\nDate Tue, 28 Jan 2025 134039 GMT\r\nAccess-Control-Allow-Origin *\r\nContent-Type application/json\r\nVary Accept\r\nContent-Length 254\r\n\r\n{"bolt_routing""neo4j//172.18.0.27687","query""http//172.18.0.27474/db/{databaseName}/query/
+Protocol on 172.17.0.1:7687/tcp (by trigger http) matches http - banner: HTTP/1.0 200 OK\r\ncontent-type application/json\r\naccess-control-allow-origin *\r\nvary Accept\r\ndate Tue, 28 Jan 2025 134039 GMT\r\ncontent-length 0\r\n\r\n
+Waiting for timeout on 13 connections ...
+
+amap v5.4 finished at 2025-01-28 07:40:52
+</pre>
+</body></html>

@@ -1,0 +1,18 @@
+
+                     __     _
+   ____  __  _______/ /__  (_)
+  / __ \/ / / / ___/ / _ \/ /
+ / / / / /_/ / /__/ /  __/ /
+/_/ /_/\__,_/\___/_/\___/_/   v3.3.8
+
+		projectdiscovery.io
+
+[[31mWRN[0m] Found 2 templates with runtime error (use -validate flag for further examination)
+[[34mINF[0m] Current nuclei version: v3.3.8 ([92mlatest[0m)
+[[34mINF[0m] Current nuclei-templates version: v10.1.2 ([92mlatest[0m)
+[[93mWRN[0m] Scan results upload to cloud is disabled.
+[[34mINF[0m] New templates added in latest release: 52
+[[34mINF[0m] Templates loaded for current scan: 8566
+[[34mINF[0m] Executing 8186 signed templates from projectdiscovery/nuclei-templates
+[[93mWRN[0m] Loading 380 unsigned templates for scan. Use with caution.
+[[34mINF[0m] No results found. Better luck next time!

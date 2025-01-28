@@ -1,0 +1,10 @@
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-01-28 07:35 CST
+Nmap scan report for 172.17.0.1
+Host is up (0.000051s latency).
+Not shown: 65532 closed tcp ports (conn-refused)
+PORT     STATE SERVICE
+1716/tcp open  xmsg
+7474/tcp open  neo4j
+7687/tcp open  bolt
+
+Nmap done: 1 IP address (1 host up) scanned in 7.26 seconds

@@ -1,0 +1,4 @@
+Version: 2.1.5
+OpenSSL 3.3.2 3 Sep 2024
+
+ERROR: Could not open a connection to host 172.17.0.1 (172.17.0.1) on port 443 (connect: Connection refused).

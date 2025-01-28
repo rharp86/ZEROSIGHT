@@ -1,0 +1,16 @@
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://172.17.0.1
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /home/ctskali/Desktop/Tools/ZEROSIGHT/wordlists/common-directories.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.6
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+
+Error: error on running gobuster: unable to connect to http://172.17.0.1/: Get "http://172.17.0.1/": dial tcp 172.17.0.1:80: connect: connection refused

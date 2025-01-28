@@ -1,0 +1,5 @@
+admin
+api
+login
+wp-admin
+dashboard

@@ -1,0 +1,23 @@
+# ZeroSight Dependencies
+# Generated: 2025-01-12 21:55:08 UTC
+# Author: rharp86
+
+# Core Dependencies
+requests>=2.26.0
+toml>=0.10.2
+rich>=10.0.0
+jinja2>=3.0.0
+python-dateutil>=2.8.2
+colorama>=0.4.4
+tqdm>=4.65.0
+PyYAML>=6.0
+cryptography>=40.0.0
+urllib3>=2.0.0
+typing-extensions>=4.5.0
+
+# Optional Dependencies
+pandas>=2.0.0  # For report generation
+plotly>=5.13.0  # For visualization
+pyOpenSSL>=23.0.0  # For SSL verification
+python-whois>=0.8.0  # For OSINT gathering
+dnspython>=2.3.0  # For DNS operations

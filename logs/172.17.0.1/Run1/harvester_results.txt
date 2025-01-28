@@ -1,0 +1,176 @@
+Read proxies.yaml from /etc/theHarvester/proxies.yaml
+*******************************************************************
+*  _   _                                            _             *
+* | |_| |__   ___    /\  /\__ _ _ ____   _____  ___| |_ ___ _ __  *
+* | __|  _ \ / _ \  / /_/ / _` | '__\ \ / / _ \/ __| __/ _ \ '__| *
+* | |_| | | |  __/ / __  / (_| | |   \ V /  __/\__ \ ||  __/ |    *
+*  \__|_| |_|\___| \/ /_/ \__,_|_|    \_/ \___||___/\__\___|_|    *
+*                                                                 *
+* theHarvester 4.6.0                                              *
+* Coded by Christian Martorella                                   *
+* Edge-Security Research                                          *
+* cmartorella@edge-security.com                                   *
+*                                                                 *
+*******************************************************************
+
+[*] Target: 172.17.0.1 
+
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for bevigil. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for binaryedge. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for bufferoverun. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for Censys ID and/or Secret. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for criminalip. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for fullhunt. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for Github. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for Hunter. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for hunterhow. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for Intelx. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for netlas. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for onyphe. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for PentestTools. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for ProjectDiscovery. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for RocketReach. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for Securitytrail. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for Tomba Key and/or Secret. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for virustotal. [0m
+Read api-keys.yaml from /etc/theHarvester/api-keys.yaml
+
+[93m[!] Missing API key for zoomeye. [0m
+[94m[*] Searching Anubis. 
+	Searching 0 results.
+[94m[*] Searching Bing. 
+[94m[*] Searching Baidu. 
+An exception has occurred: 400, message:
+  Can not decode content-encoding: br
+	Searching results.
+[94m[*] Searching Certspotter. 
+An exception occurred: list index out of range
+[94m[*] Searching Dnsdumpster. 
+[94m[*] Searching CRTsh. 
+[94m[*] Searching Duckduckgo. 
+[94m[*] Searching Hackertarget. 
+[94m[*] Searching Rapiddns. 
+Sitedossier module has triggered a captcha on first iteration, no results can be found.
+Change IPs, manually solve the captcha, or wait before rerunning Sitedossier module
+[94m[*] Searching Sitedossier. 
+[94m[*] Searching Subdomaincenter. 
+An exception has occurred: 400, message:
+  Can not decode content-encoding: br
+An exception has occurred: 500, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url='https://api.threatminer.org/v2/domain.php?q=172.17.0.1&rt=5'
+[94m[*] Searching Subdomainfinderc99. 
+[94m[*] Searching Urlscan. 
+[94m[*] Searching Yahoo. 
+An exception has occurred: 400, message:
+  Can not decode content-encoding: br
+[94m[*] Searching Brave. 
+
+[*] ASNS found: 6
+--------------------
+AS13335
+AS16276
+AS16509
+AS200350
+AS24940
+AS396982
+
+[*] Interesting Urls found: 24
+--------------------
+http://172.17.0.1/
+http://172.17.0.1/16
+http://172.17.0.1/filestreamingservice/files/5f195612-384a-48ea-8408-b4ede9dc56bb
+http://172.17.0.1:10180/
+http://172.17.0.1:3000/
+http://172.17.0.1:3000/japan
+http://172.17.0.1:3030/
+http://172.17.0.1:4000/
+http://172.17.0.1:5500/
+http://172.17.0.1:8080/
+http://172.17.0.1:8081/
+http://172.17.0.1:8082/
+http://172.17.0.1:8086/
+http://172.17.0.1:8086/poc.jsp/
+http://172.17.0.1:8086/tplus/ajaxpro/Ufida.T.CodeBehind._PriorityLevel,App_Code.ashx?method=GetStoreWarehouseByStore
+http://172.17.0.1:8086/uploads/user
+http://172.17.0.1:8086/wls-wsat/CoordinatorPortType
+http://172.17.0.1:81/
+http://172.17.0.1:83/
+http://172.17.0.1:8545/
+http://172.17.0.1:8546/
+http://172.17.0.1:9000/
+https://172.17.0.1/
+https://172.17.0.1/login
+
+[*] LinkedIn Links found: 0
+---------------------
+
+[*] IPs found: 9
+-------------------
+172.66.40.246
+172.66.43.10
+2606:4700:3108::ac42:28f6
+34.155.164.8
+49.12.213.169
+76.76.21.142
+79.137.72.206
+89.169.159.74
+92.222.206.252
+
+[*] Emails found: 3
+----------------------
+'example-user@172.17.0.1
+postgres@172.17.0.1
+root@172.17.0.1
+
+[*] Hosts found: 2
+---------------------
+IP.172.17.0.1
+devices.172.17.0.1
+
+[*] Reporting started.
+[*] XML File saved.
+[*] JSON File saved.
+
+
+
+Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x7f7ed78482c0>

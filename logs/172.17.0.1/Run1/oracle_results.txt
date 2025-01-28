@@ -1,0 +1,8 @@
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-01-28 07:46 CST
+Nmap scan report for 172.17.0.1
+Host is up (0.000094s latency).
+
+PORT     STATE  SERVICE
+1521/tcp closed oracle
+
+Nmap done: 1 IP address (1 host up) scanned in 6.69 seconds
