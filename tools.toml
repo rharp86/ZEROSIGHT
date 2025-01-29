@@ -21,7 +21,7 @@ tools = [
     { name = "spiderfoot", command = "sf.py -s {target} -o json -F tab,csv,json -o {base_dir}/logs/{target}/{run_dir}/spiderfoot_results.json" },
     { name = "assetfinder", command = "assetfinder --subs-only {target} | tee {base_dir}/logs/{target}/{run_dir}/assetfinder_results.txt" },
     { name = "gitrecon", command = "gitrecon -t {target} -o {base_dir}/logs/{target}/{run_dir}/gitrecon_results.txt" },
-    { name = "subfinder", command = "subfinder -d {target} -o {base_dir}/logs/{target}/{run_dir}/subfinder_results.txt" }
+    { name = "subfinder", command = "subfinder -d {target} -o {base_dir}/logs/{target}/{run_dir}/subfinder_results.txt" },
 ]
 
 [categories.2]
@@ -32,7 +32,9 @@ tools = [
     { name = "nuclei-default-login", command = "nuclei -u {target} -t {base_dir}/nuclei-templates/network/default-login/ -o {base_dir}/logs/{target}/{run_dir}/default_login.txt" },
     { name = "hydra-ssh", command = "hydra -L {base_dir}/wordlists/users.txt -P {base_dir}/wordlists/passwords.txt {target} ssh -o {base_dir}/logs/{target}/{run_dir}/hydra_ssh_results.txt" },
     { name = "medusa-ftp", command = "medusa -h {target} -U {base_dir}/wordlists/users.txt -P {base_dir}/wordlists/passwords.txt -M ftp -O {base_dir}/logs/{target}/{run_dir}/medusa_results.txt" },
-    { name = "changeme", command = "changeme {target} --output {base_dir}/logs/{target}/{run_dir}/changeme_results.html" }
+    { name = "changeme", command = "changeme {target} --output {base_dir}/logs/{target}/{run_dir}/changeme_results.html" },
+    { name = "smbclient", command = "smbclient -L {target} | tee {base_dir}/logs/{target}/{run_dir}/smbclient_results.txt" },
+    { name = "smbclient-enum", command = "smbclient -L {target} --user anonymous --password \"\" | tee {base_dir}/logs/{target}/{run_dir}/smbclient_anonymous_results.txt" },
 ]
 
 [categories.3]
@@ -40,14 +42,18 @@ name = "Network"
 description = "Network scanning and enumeration"
 tools = [
     { name = "nuclei-netenum", command = "nuclei -t {base_dir}/nuclei-templates/network/enumeration -u {target} -o {base_dir}/logs/{target}/{run_dir}/network_enumeration.txt" },
-    { name = "nmap-full", command = "nmap -sC -sV -Pn -p- -T4 -O {target} -oN {base_dir}/logs/{target}/{run_dir}/nmap_full.txt" },
+    { name = "nmap-full", command = "nmap -sC -sV -Pn -p- -T4 -O --min-rate 5000 {target}  -oN {base_dir}/logs/{target}/{run_dir}/nmap_full.txt" },
     { name = "masscan-quick", command = "masscan {target} -p1-65535 --rate 1000 -oL {base_dir}/logs/{target}/{run_dir}/masscan_results.txt" },
-    { name = "tcp-scan", command = "nmap -sT -p- {target} -oN {base_dir}/logs/{target}/{run_dir}/tcp_results.txt" },
-    { name = "udp-scan", command = "nmap -sU --top-ports 100 {target} -oN {base_dir}/logs/{target}/{run_dir}/udp_results.txt" },
-    { name = "unicornscan", command = "unicornscan -mT -Iv {target}:a -l {base_dir}/logs/{target}/{run_dir}/unicorn_results.txt" },
+    { name = "tcp-scan", command = "nmap -sT -p- {target} --min-rate 5000 -oN {base_dir}/logs/{target}/{run_dir}/tcp_results.txt" },
+    { name = "udp-scan", command = "nmap -sU --top-ports 1000 {target} --min-rate 5000 -oN {base_dir}/logs/{target}/{run_dir}/udp_results.txt" },
     { name = "zmap", command = "zmap {target} -p 80 -o {base_dir}/logs/{target}/{run_dir}/zmap_results.txt" },
     { name = "amap", command = "amap -bqv {target} 1-65535 -o {base_dir}/logs/{target}/{run_dir}/amap_results.txt" },
-    { name = "netcat-scan", command = "nc -zv {target} 1-65535 2>&1 | tee {base_dir}/logs/{target}/{run_dir}/netcat_results.txt" }
+    { name = "netcat-scan", command = "nc -zv {target} 1-65535 2>&1 | tee {base_dir}/logs/{target}/{run_dir}/netcat_results.txt" },
+    { name = "sslyze", command = "sslyze -v {target} -o {base_dir}/logs/{target}/{run_dir}/sslyze_results.txt" },
+    { name = "showmount", command = "showmount -e {target} | tee {base_dir}/logs/{target}/{run_dir}/showmount_results.txt" },
+    { name = "telnet23", command = "telnet {target} 23 | tee {base_dir}/logs/{target}/{run_dir}/telnet_23_results.txt" },
+    { name = "telnet1524", command = "telnet {target} 1524 | tee {base_dir}/logs/{target}/{run_dir}/telnet_1524_results.txt" },
+    { name = "telnet6200", command = "telnet {target} 6200 | tee {base_dir}/logs/{target}/{run_dir}/telnet_6200_results.txt" },
 ]
 
 [categories.4]
@@ -57,6 +63,10 @@ tools = [
     { name = "nikto", command = "nikto -h {target} -output {base_dir}/logs/{target}/{run_dir}/nikto_results.txt" },
     { name = "wpscan", command = "wpscan --url {target} --output {base_dir}/logs/{target}/{run_dir}/wpscan_results.txt" },
     { name = "zap-baseline", command = "zap-baseline.py -t {target} -r {base_dir}/logs/{target}/{run_dir}/zap_baseline_report.html" },
+    { name = "dirbuster", command = "dirbuster {target} -o {base_dir}/logs/{target}/{run_dir}/dirbuster_results.txt" },
+    { name = "wafw00f", command = "wafw00f {target} | tee {base_dir}/logs/{target}/{run_dir}/wafwoof_results.txt" },
+    { name = "rpcinfo", command = "rpcinfo -p {target} | tee {base_dir}/logs/{target}/{run_dir}/rpcinfo_results.txt" },
+    { name = "gobuster-wappalyzer", command = "gobuster dir -u {target} -w {base_dir}/wordlists/common-directories.txt -o {base_dir}/logs/{target}/{run_dir}/gobuster_wappalyzer_results.txt" },     
 ]
 
 [categories.5]
@@ -67,7 +77,8 @@ tools = [
     { name = "windapsearch", command = "windapsearch -d {target} --dc {target} -o {base_dir}/logs/{target}/{run_dir}/windapsearch_results.txt" },
     { name = "enum4linux", command = "enum4linux -a {target} | tee {base_dir}/logs/{target}/{run_dir}/enum4linux_results.txt" },
     { name = "crackmapexec", command = "crackmapexec smb {target} --users | tee {base_dir}/logs/{target}/{run_dir}/crackmapexec_results.txt" },
-    { name = "netexec", command = "nxc smb {target} --log {base_dir}/logs/{target}/{run_dir}/netexec.txt" }
+    { name = "netexec", command = "nxc smb {target} --log {base_dir}/logs/{target}/{run_dir}/netexec.txt" },
+    
 ]
 
 [categories.6]
@@ -76,6 +87,9 @@ description = "Cloud infrastructure security assessment"
 tools = [
     { name = "nuclei-cloud", command = "nuclei -esc {base_dir}/nuclei-templates/cloud/ -u {target} -o {base_dir}/logs/{target}/{run_dir}/nuclei_cloud_results.txt" },
     { name = "nuclei-kubernetes", command = "nuclei -esc {base_dir}/nuclei-templates/cloud/kubernetes -u {target} -o {base_dir}/logs/{target}/{run_dir}/nuclei_kubernetes_results.txt" },
+    { name = "kube-hunter", command = "kube-hunter --remote {target} --json {base_dir}/logs/{target}/{run_dir}/kube_hunter_results.json" },
+    { name = "kubectl", command = "kubectl get all --all-namespaces -o json | tee {base_dir}/logs/{target}/{run_dir}/kubectl_results.json" },
+    { name = "kube-bench", command = "kube-bench --json | tee {base_dir}/logs/{target}/{run_dir}/kube_bench_results.json" },
     { name = "cloud_enum", command = "cloud_enum -k {target} -l {base_dir}/logs/{target}/{run_dir}/cloud_enum_results.txt" },
     { name = "s3scanner", command = "s3scanner scan {target} -o {base_dir}/logs/{target}/{run_dir}/s3_scanner_results.txt" },
     { name = "cloudsploit", command = "cloudsploit scan -c {target} -o {base_dir}/logs/{target}/{run_dir}/cloudsploit_results.json" },
@@ -86,9 +100,6 @@ tools = [
     { name = "gcp_buckets_enum", command = "python3 gcp_bucket_enum.py {target} -o {base_dir}/logs/{target}/{run_dir}/gcp_buckets_enum_results.txt" },
     { name = "Azucar", command = "python3 Azucar.py -d {target} -o {base_dir}/logs/{target}/{run_dir}/azucar_results" },
     { name = "az-cli", command = "az account list -o table | tee {base_dir}/logs/{target}/{run_dir}/azure_enum_results.txt" },
-    { name = "kube-hunter", command = "kube-hunter --remote {target} --json {base_dir}/logs/{target}/{run_dir}/kube_hunter_results.json" },
-    { name = "kubectl", command = "kubectl get all --all-namespaces -o json | tee {base_dir}/logs/{target}/{run_dir}/kubectl_results.json" },
-    { name = "kube-bench", command = "kube-bench --json | tee {base_dir}/logs/{target}/{run_dir}/kube_bench_results.json" }
 ]
 
 [categories.7]
@@ -100,7 +111,7 @@ tools = [
     { name = "postgres-scan", command = "nmap -p 5432 -sV --script pgsql-brute {target} -oN {base_dir}/logs/{target}/{run_dir}/postgres_results.txt" },
     { name = "redis-scan", command = "redis-cli -h {target} info | tee {base_dir}/logs/{target}/{run_dir}/redis_results.txt" },
     { name = "mssql-scan", command = "nmap -p 1433 --script ms-sql-info {target} -oN {base_dir}/logs/{target}/{run_dir}/mssql_results.txt" },
-    { name = "oracle-scan", command = "nmap -p 1521 --script oracle-enum-users {target} -oN {base_dir}/logs/{target}/{run_dir}/oracle_results.txt" }
+    { name = "oracle-scan", command = "nmap -p 1521 --script oracle-enum-users {target} -oN {base_dir}/logs/{target}/{run_dir}/oracle_results.txt" },
 ]
 
 [paths]
