@@ -21,3 +21,8 @@ plotly>=5.13.0  # For visualization
 pyOpenSSL>=23.0.0  # For SSL verification
 python-whois>=0.8.0  # For OSINT gathering
 dnspython>=2.3.0  # For DNS operations
+
+# Additional Dependencies
+csv  # For CSV report generation
+json  # For JSON report generation
+datetime  # For handling date and time
