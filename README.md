@@ -45,189 +45,188 @@ requests>=2.26.0
 toml>=0.10.0
 rich>=10.0.0
 jinja2>=3.0.0
+```
 
-Installation
-Standard Installation
+## Installation
 
-    Clone the repository:
+### Standard Installation
 
-bash
-
+1. Clone the repository:
+```bash
 git clone https://github.com/rharp86/zerosight.git
 cd zerosight
+```
 
-    Run the setup script:
-
-bash
-
+2. Run the setup script:
+```bash
 python3 setup.py
+```
 
-    Verify installation:
-
-bash
-
+3. Verify installation:
+```bash
 python3 zerosight.py --check
+```
 
-Offline Installation
+### Offline Installation
 
-    Download the offline package:
-
-bash
-
+1. Download the offline package:
+```bash
 # While online
 python3 setup.py --download-offline
+```
 
-    Transfer the generated zerosight_offline.tar.gz to the target system
+2. Transfer the generated `zerosight_offline.tar.gz` to the target system
 
-    Extract and install offline:
-
-bash
-
+3. Extract and install offline:
+```bash
 tar -xzf zerosight_offline.tar.gz
 cd zerosight
 python3 setup.py --offline
+```
 
-Offline Package Contents
+### Offline Package Contents
 
-    Python wheel files for all dependencies
-    Basic wordlists
-    Nuclei templates
-    Tool binaries (where applicable)
+- Python wheel files for all dependencies
+- Basic wordlists
+- Nuclei templates
+- Tool binaries (where applicable)
 
-Usage
-Basic Usage
-bash
+## Usage
 
+### Basic Usage
+```bash
 python3 zerosight.py
+```
 
 Follow the interactive prompts to:
 
-    Enter target domain/IP or file
-    Select scanning category
-    View real-time results
+- Enter target domain/IP or file
+- Select scanning category
+- View real-time results
 
-Offline Mode
-bash
-
+### Offline Mode
+```bash
 python3 zerosight.py --offline
+```
 
-Categories
+## Categories
 
-    Automatic - Full automated scanning
-        Nuclei
-        Nmap
-        Gobuster
-        Subfinder
-            3 more tools
+- **Automatic** - Full automated scanning
+  - Nuclei
+  - Nmap
+  - Gobuster
+  - Subfinder
+  - 3 more tools
 
-    OSINT - Intelligence gathering
-        theHarvester
-        Spiderfoot
-        Whois
-            5 more tools
+- **OSINT** - Intelligence gathering
+  - theHarvester
+  - Spiderfoot
+  - Whois
+  - 5 more tools
 
-    Credentials - Password security
-        Hydra
-        Medusa
-        Crowbar
-            4 more tools
+- **Credentials** - Password security
+  - Hydra
+  - Medusa
+  - Crowbar
+  - 4 more tools
 
-    Network - Network analysis
-        Nmap
-        Masscan
-        Unicornscan
-            5 more tools
+- **Network** - Network analysis
+  - Nmap
+  - Masscan
+  - Unicornscan
+  - 5 more tools
 
-    Web - Web application testing
-        WPScan
-        Nikto
-        SQLMap
-            6 more tools
+- **Web** - Web application testing
+  - WPScan
+  - Nikto
+  - SQLMap
+  - 6 more tools
 
-    Active Directory - AD assessment
-        Bloodhound
-        Kerbrute
-        CrackMapExec
-            4 more tools
+- **Active Directory** - AD assessment
+  - Bloodhound
+  - Kerbrute
+  - CrackMapExec
+  - 4 more tools
 
-    Cloud - Cloud infrastructure
-        CloudFail
-        S3Scanner
-        CloudMapper
-            5 more tools
+- **Cloud** - Cloud infrastructure
+  - CloudFail
+  - S3Scanner
+  - CloudMapper
+  - 5 more tools
 
-    Databases - Database security
-        MongoDB tools
-        MySQL tools
-        PostgreSQL tools
-            5 more tools
+- **Databases** - Database security
+  - MongoDB tools
+  - MySQL tools
+  - PostgreSQL tools
+  - 5 more tools
 
-Configuration
+## Configuration
 
-The tools.toml file contains all tool configurations:
-bash
-
+The `tools.toml` file contains all tool configurations:
+```bash
 vim tools.toml
+```
 
-Key Configuration Sections:
+### Key Configuration Sections:
 
-    General settings
-    Category-specific tools
-    Threading options
-    Rate limiting
-    Proxy settings
-    Offline mode settings
+- General settings
+- Category-specific tools
+- Threading options
+- Rate limiting
+- Proxy settings
+- Offline mode settings
 
-Logging
+## Logging
 
-Logs are stored in logs/ directory:
+Logs are stored in `logs/` directory:
 
-    Activity logs: zerosight_YYYYMMDD_HHMMSS.log
-    Tool output: results_YYYYMMDD_HHMMSS/
-    Error logs: error_YYYYMMDD_HHMMSS.log
+- Activity logs: `zerosight_YYYYMMDD_HHMMSS.log`
+- Tool output: `results_YYYYMMDD_HHMMSS/`
+- Error logs: `error_YYYYMMDD_HHMMSS.log`
 
-Log Rotation
+### Log Rotation
 
-    Logs are automatically rotated after 7 days
-    Compressed archives are maintained for 30 days
+- Logs are automatically rotated after 7 days
+- Compressed archives are maintained for 30 days
 
-Troubleshooting
-Common Issues
+## Troubleshooting
 
-    Tool Not Found
-    bash
+### Common Issues
 
+- **Tool Not Found**
+```bash
 # Reinstall tool
 python3 setup.py --reinstall-tools
+```
 
-Dependency Errors
-bash
-
+- **Dependency Errors**
+```bash
 # Rebuild dependencies
 python3 setup.py --rebuild-deps
+```
 
-Offline Mode Issues
-bash
+- **Offline Mode Issues**
+```bash
+# Verify offline package
+python3 setup.py --verify-offline
+```
 
-    # Verify offline package
-    python3 setup.py --verify-offline
-
-Debug Mode
-bash
-
+### Debug Mode
+```bash
 python3 zerosight.py --debug
+```
 
-Contributing
+## Contributing
 
-    Fork the repository
-    Create feature branch
-    Commit changes
-    Push to branch
-    Create Pull Request
+1. Fork the repository
+2. Create feature branch
+3. Commit changes
+4. Push to branch
+5. Create Pull Request
 
-License
+## License
 
 MIT License - See LICENSE file for details
 
-Created By: Robert Harp (rharp86)
-Last Updated: 2025-01-12 23:03:33 UTC
+**Created By:** Robert Harp (rharp86)  
+**Last Updated:** 2025-01-12 23:03:33 UTC
