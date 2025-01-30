@@ -23,6 +23,13 @@ class ZeroSightSetup:
             'offline_tools'
         ]
         self.python_version = (3, 8)
+        self.wordlist_files = ['directories.txt', 'subdomains.txt', 'users.txt']
+        self.dependencies = [
+            'requests>=2.26.0',
+            'toml>=0.10.0',
+            'rich>=10.0.0',
+            'jinja2>=3.0.0'
+        ]
 
     def check_python_version(self) -> bool:
         """Verify Python version meets requirements"""
@@ -44,7 +51,8 @@ class ZeroSightSetup:
         """Install Python package dependencies"""
         print("Installing Python dependencies...")
         try:
-            subprocess.run([sys.executable, "-m", "pip", "install", "-r", "requirements.txt"])
+            for dependency in self.dependencies:
+                subprocess.check_call([sys.executable, '-m', 'pip', 'install', dependency])
         except subprocess.CalledProcessError as e:
             print(f"Error installing dependencies: {e}")
             return False
